@@ -1,0 +1,22 @@
+site_name: "FIWARE Small Bang"
+site_description: FIWARE Small Bang (Let's FIWARE)
+
+nav:
+  - 'Home':
+    - 'Index': index.md
+    - 'Installation': installation.md
+    - 'After installation': after-installation.md
+    - 'System Administration': system_administration.md
+    - 'NGSI Go': ngsi-go.md
+    - 'Get token': get_token.md
+    - 'Examples':
+      - 'Orion': examples/orion.md
+      - 'Cygnus': examples/cygnus.md
+      - 'Comet': examples/comet.md
+      - 'Perseo': examples/perseo.md
+      - 'QuantumLeap': examples/quantumleap.md
+      - 'IoT Agent for UL': examples/iotagent-ul.md
+      - 'IoT Agent for JSON': examples/iotagent-json.md
+      - 'WireCloud': examples/wirecloud.md
+      - 'Node-RED': examples/node-red.md
+    - 'Troubleshooting': troubleshooting.md
