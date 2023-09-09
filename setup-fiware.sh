@@ -699,7 +699,7 @@ EOF
 # Add to docker_compose.yml
 #
 add_to_docker_compose_yml() {
-  sed -i -e "/$1/i \ $2" "${DOCKER_COMPOSE_YML}"
+  sed -i.bak -e "/${1}/s/^/ ${2}${SED_LF}/" "${DOCKER_COMPOSE_YML}"
 }
 
 #
@@ -950,48 +950,48 @@ EOF
   if ${CYGNUS_MONGO}; then
     sink=$((sink+1))
     setup_mongo
-    sed -i -e "/__CYGNUS_DEPENDS_ON__/i \      - mongo" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_MONGO_SERVICE_PORT=5051" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_MONGO_HOSTS=mongo:27017" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/# __CYGNUS_PORTS__/i \      - 5051:5051" "${DOCKER_COMPOSE_YML}"
+    add_to_docker_compose_yml "__CYGNUS_DEPENDS_ON__" "     - mongo"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_MONGO_SERVICE_PORT=5051"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_MONGO_HOSTS=mongo:27017"
+    add_to_docker_compose_yml "__CYGNUS_PORTS__" "     - 5051:5051"
   fi
 
   if ${CYGNUS_MYSQL}; then
     sink=$((sink+1))
     setup_mysql
-    sed -i -e "/__CYGNUS_DEPENDS_ON__/i \      - mysql" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_MYSQL_SERVICE_PORT=5050" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_MYSQL_HOST=mysql" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_MYSQL_PORT=3306" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_MYSQL_USER=root" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_MYSQL_PASS=\${MYSQL_ROOT_PASSWORD}" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/# __CYGNUS_PORTS__/i \      - 5050:5050" "${DOCKER_COMPOSE_YML}"
+    add_to_docker_compose_yml "__CYGNUS_DEPENDS_ON__" "     - mysql"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_MYSQL_SERVICE_PORT=5050"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_MYSQL_HOST=mysql"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_MYSQL_PORT=3306"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_MYSQL_USER=root"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_MYSQL_PASS=\${MYSQL_ROOT_PASSWORD}"
+    add_to_docker_compose_yml "__CYGNUS_PORTS__" "     - 5050:5050"
   fi
 
   if ${CYGNUS_POSTGRES}; then
     sink=$((sink+1))
     setup_postgres
-    sed -i -e "/__CYGNUS_DEPENDS_ON__/i \      - postgres" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_POSTGRESQL_SERVICE_PORT=5055" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_POSTGRESQL_HOST=postgres" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_POSTGRESQL_PORT=5432" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_POSTGRESQL_USER=postgres" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_POSTGRESQL_PASS=\${POSTGRES_PASSWORD}" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/# __CYGNUS_PORTS__/i \      - 5055:5055" "${DOCKER_COMPOSE_YML}"
+    add_to_docker_compose_yml "__CYGNUS_DEPENDS_ON__" "     - postgres"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_POSTGRESQL_SERVICE_PORT=5055"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_POSTGRESQL_HOST=postgres"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_POSTGRESQL_PORT=5432"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_POSTGRESQL_USER=postgres"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_POSTGRESQL_PASS=\${POSTGRES_PASSWORD}"
+    add_to_docker_compose_yml "__CYGNUS_PORTS__" "     - 5055:5055"
   fi
 
   if ${CYGNUS_ELASTICSEARCH}; then
     sink=$((sink+1))
     setup_elasticsearch
-    sed -i -e "/__CYGNUS_DEPENDS_ON__/i \      - elasticsearch-db" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_ELASTICSEARCH_HOST=elasticsearch-db:9200" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_ELASTICSEARCH_PORT=5058" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_ELASTICSEARCH_SSL=false" "${DOCKER_COMPOSE_YML}"
-    sed -i -e "/# __CYGNUS_PORTS__/i \      - 5058:5058" "${DOCKER_COMPOSE_YML}"
+    add_to_docker_compose_yml "__CYGNUS_DEPENDS_ON__" "     - elasticsearch-db"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_ELASTICSEARCH_HOST=elasticsearch-db:9200"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_ELASTICSEARCH_PORT=5058"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_ELASTICSEARCH_SSL=false"
+    add_to_docker_compose_yml "__CYGNUS_PORTS__" "     - 5058:5058"
   fi
 
   if [ $sink -ge 2 ]; then
-    sed -i -e "/__CYGNUS_ENVIRONMENT__/i \      - CYGNUS_MULTIAGENT=true" "${DOCKER_COMPOSE_YML}"
+    add_to_docker_compose_yml "__CYGNUS_ENVIRONMENT__" "     - CYGNUS_MULTIAGENT=true"
   fi
 
   cat <<EOF >> "${DOT_ENV}"
@@ -1699,7 +1699,8 @@ start_containers() {
 # Setup complete
 #
 setup_complete() {
-#  sed -i -e "/# __/d" "${DOCKER_COMPOSE_YML}"
+  sed -i.bak -e "/# __/d" "${DOCKER_COMPOSE_YML}"
+  rm -f "${DOCKER_COMPOSE_YML}.bak"
   rm -f .install
 
   echo "*** Setup has completed ***"
@@ -1715,6 +1716,8 @@ init_env() {
   ERR_CODE="${ERR_CODE:-1}"
   LOGGING_INFO="${LOGGING_INFO:-false}"
   LOGGER="${LOGGER:-false}"
+  SED_LF=$(printf '\\\012_')
+  SED_LF=${SED_LF%_}
 }
 
 #
