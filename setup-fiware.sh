@@ -162,7 +162,7 @@ check_services_for_arm64() {
 
   local NAME
   local VAL
-  for NAME in CYGNUS_MONGO CYGNUS_MYSQL CYGNUS_POSTGRES CYGNUS_ELASTICSEARCH COMET QUANTUMLEAP PERSEO IOTAGENT_UL IOTAGENT_JSON
+  for NAME in CYGNUS_MONGO CYGNUS_MYSQL CYGNUS_POSTGRES CYGNUS_ELASTICSEARCH QUANTUMLEAP PERSEO IOTAGENT_UL IOTAGENT_JSON
   do
     eval "VAL=\${${NAME}}"
     if [ "${VAL}" = "true" ]; then
@@ -351,7 +351,7 @@ set_arm64_images() {
   IMAGE_ORION=letsfiware/orion:3.10.1
   IMAGE_WIRECLOUD=letsfiware/wirecloud:1.3
   IMAGE_NGSIPROXY=letsfiware/ngsiproxy:1.2.0
-  IMAGE_COMET=letsfiware/sth-comet:2.8.0
+  IMAGE_COMET=letsfiware/sth-comet:2.10.0
   IMAGE_CYGNUS=telefonicaiot/fiware-cygnus:3.2.0
   IMAGE_IOTAGENT_UL=letsfiware/iotagent-ul:1.13.0
   IMAGE_IOTAGENT_JSON=letsfiware/iotagent-json:1.17.0
