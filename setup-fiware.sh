@@ -1338,7 +1338,7 @@ RUN apt update && \
     apt install -y git curl zip unzip openjdk-8-jdk maven -y --no-install-recommends && \
     apt -y clean && \
     rm -rf /var/lib/apt/lists/* && \
-    export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/" && \
+    if [ "$(uname -m)" = "x86_64" ]; then export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"; echo "${JAVA_HOME}"; else export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64/"; echo "${JAVA_HOME}"; fi && \
     curl -s https://get.sdkman.io | bash && \
     source "/root/.sdkman/bin/sdkman-init.sh" && \
     sdk install gradle 3.3 && \

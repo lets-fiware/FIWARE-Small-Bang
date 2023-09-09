@@ -1,0 +1,29 @@
+name: Tests
+on:
+  push:
+    branches:
+      - main
+      - "*-next"
+  pull_request:
+    branches:
+      - main
+      - "*-next"
+
+jobs:
+  setup-test:
+    name: setup test
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install
+      run: ./tests/script/coverage.sh
+
+    - name: Run codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        directory: coverage

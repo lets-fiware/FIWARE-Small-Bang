@@ -1,0 +1,21 @@
+name: Lint
+on:
+  push:
+    branches:
+      - main
+      - "*-next"
+  pull_request:
+    branches:
+      - main
+      - "*-next"
+
+jobs:
+  lint-docs:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+
+      - name: Run lint config
+        run: ./tests/script/lint.sh
