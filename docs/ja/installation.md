@@ -5,10 +5,40 @@
 <details>
 <summary><strong>詳細</strong></summary>
 
+-   [前提条件](#prerequisite)
+-   [使用方法](#getting-started)
 -   [構成パラメータ](#configuration-parameters)
 -   [関連情報](#related-information)
 
 </details>
+
+<a name="prerequisite"></a>
+
+## 前提条件
+
+<a name="getting-started"></a>
+
+セットアップ・スクリプトを実行する前に、Docker と Docker compose plugin を導入します。
+
+## 使用方法
+
+FIWARE Small Bang の tar.gz ファイルをダウンロードします。
+
+```bash
+curl -sL https://github.com/lets-fiware/FIWARE-Small-Bang/releases/download/v0.1.0/FIWARE-Small-Bang-0.1.0.tgz | tar zxf -
+```
+
+`FIWARE-Small-Bang-0.1.0` ディレクトリに移動します。
+
+```bash
+cd FIWARE-Small-Bang-0.1.0/
+```
+
+`setup-fiware.sh` スクリプトを実行します。
+
+```bash
+./setup-fiware.sh
+```
 
 <a name="configuration-parameters"></a>
 

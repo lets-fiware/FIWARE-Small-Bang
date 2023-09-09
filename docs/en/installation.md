@@ -5,10 +5,36 @@
 <details>
 <summary><strong>Details</strong></summary>
 
+-   [Prerequisite](#prerequisite)
+-   [Getting Started](#getting-started)
 -   [Configuration parameters](#configuration-parameters)
 -   [Related information](#related-information)
 
 </details>
+
+## Prerequisite
+
+Before running the setup script, you need to install docker and docker compose plugin.
+
+## Getting Started
+
+Download a tar.gz file for the FIWARE Small Bang.
+
+```bash
+curl -sL  https://github.com/lets-fiware/FIWARE-Small-Bang/releases/download/v0.1.0/FIWARE-Small-Bang-0.1.0.tgz | tar zxf -
+```
+
+Move to the `FIWARE-Small-Bang-0.1.0` directory.
+
+```bash
+cd FIWARE-Small-Bang-0.1.0/
+```
+
+Run the `setup-fiware.sh` script.
+
+```bash
+./setup-fiware.sh
+```
 
 ## Configuration parameters
 
