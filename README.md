@@ -5,13 +5,20 @@
 [![License: MIT](https://img.shields.io/github/license/lets-fiware/FIWARE-Small-Bang.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Discussions](https://img.shields.io/github/discussions/lets-fiware/FIWARE-Small-Bang)](https://github.com/lets-fiware/FIWARE-Small-Bang/discussions)
 <br/>
+[![Lint](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/lint.yml/badge.svg)](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/lint.yml)
+[![Tests](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-latest.yml/badge.svg)](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-latest.yml)
+[![codecov](https://codecov.io/gh/lets-fiware/FIWARE-Small-Bang/graph/badge.svg?token=NYMGIUqFlH)](https://codecov.io/gh/lets-fiware/FIWARE-Small-Bang)
+<br/>
+[![Ubuntu 20.04](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-20.04.yml/badge.svg)](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-20.04.yml)
+[![Ubuntu 22.04](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-22.04.yml/badge.svg)](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-22.04.yml)
+<br/>
 
 The FIWARE Small Bang is a turnkey solution for setting up a FIWARE instance on your local machine.
 
 | :books: [Documentation](https://fi-sb.letsfiware.jp/) | :dart: [Roadmap](./ROADMAP.md) |
 |-------------------------------------------------------|--------------------------------|
 
-このドキュメントは[日本語](./README.ja.md)でもご覧いただけます。
+このドキュメントは[日本語](./README_ja.md)でもご覧いただけます。
 
 ## What is FIWARE Small Bang?
 
@@ -41,7 +48,7 @@ FI-SB stands for FIWARE Small Bang.
 ## Requirements
 
 -   Supported Linux distribution
-    -   Ubuntu 22.04 LTS
+    -   Ubuntu 22.04 LTS (x86_64, Aarch64)
     -   Ubuntu 20.04 LTS
     -   CentOS Stream release 9
     -   CentOS Stream release 8
@@ -49,6 +56,8 @@ FI-SB stands for FIWARE Small Bang.
     -   Rocky Linux 8
     -   AlmaLinux 9
     -   AlmaLinux 8
+
+-   macOS (Intel, Apple Silicon)
 
 ## Prerequisite
 
