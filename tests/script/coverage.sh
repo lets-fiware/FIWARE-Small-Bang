@@ -339,24 +339,6 @@ error_test() {
   export FISB_TEST_DOCKER_CMD=
   reset_env
 
-  #
-  # not support for arm64
-  #
-  echo "*** not support for arm64 ***" 1>&2
-
-  echo -e "#!/bin/bash\nif [ \"\${1}\" = \"-m\" ]; then\necho \"arm64\"\nelif [ \"\${1}\" = \"-s\" ]; then\necho \"Darwin\"\nfi\n" >> "${MOCK_DIR}/uname"
-  chmod +x "${MOCK_DIR}/uname"
-  export FISB_TEST_UNAME_CMD=${MOCK_DIR}/uname
-
-  sed -i -e "s/^\(CYGNUS_ELASTICSEARCH=\).*/\1true/" config.sh
-
-  ${KCOV} ./coverage ./setup-fiware.sh
-
-  rm -f "${MOCK_DIR}/uname"
-  export FISB_TEST_UNAME_CMD=
-
-  reset_env
-
   export ERR_CODE=
 }
 
