@@ -348,7 +348,7 @@ error_test() {
   chmod +x "${MOCK_DIR}/uname"
   export FISB_TEST_UNAME_CMD=${MOCK_DIR}/uname
 
-  sed -i -e "s/^\(QUANTUMLEAP=\).*/\1true/" config.sh
+  sed -i -e "s/^\(CYGNUS_ELASTICSEARCH=\).*/\1true/" config.sh
 
   ${KCOV} ./coverage ./setup-fiware.sh
 
