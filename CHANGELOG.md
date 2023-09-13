@@ -1,4 +1,4 @@
-## FIWARE Small Bang v0.1.0-next
+## FIWARE Small Bang v0.2.0 - 13 September, 2023
 
 -   ADD Elasticsearch 7.17.13 (#14)
 -   ADD Quantumleap 0.9.0-dev for arm64 (#13)
