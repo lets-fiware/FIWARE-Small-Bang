@@ -1,3 +1,5 @@
+## FIWARE Small Bang v0.2.0-next
+
 ## FIWARE Small Bang v0.2.0 - 13 September, 2023
 
 -   ADD Elasticsearch 7.17.13 (#14)
