@@ -155,25 +155,6 @@ init_directories() {
 }
 
 #
-# Check services for arm64
-#
-check_services_for_arm64() {
-  logging_info "${FUNCNAME[0]}"
-
-  local NAME
-  local VAL
-  for NAME in CYGNUS_ELASTICSEARCH
-  do
-    eval "VAL=\${${NAME}}"
-    if [ "${VAL}" = "true" ]; then
-      MSG="Error: currently ${NAME} not support for arm64"
-      logging_err "${FUNCNAME[0]} ${MSG}"
-      exit "${ERR_CODE}" 
-    fi
-  done
-}
-
-#
 # Check value
 #
 check_value() {
@@ -320,10 +301,6 @@ get_config_sh() {
   else
     check_value START_CONTAINER
   fi
-
-  if [ "${ARCH}" = "arm64" ]; then
-    check_services_for_arm64
-  fi
 }
 
 #
@@ -418,7 +395,7 @@ EOF
 
   IMAGE_MYSQL=mysql:8.1
 
-  IMAGE_ELASTICSEARCH_DB=elasticsearch:7.6.2
+  IMAGE_ELASTICSEARCH_DB=elasticsearch:7.17.13
 
   IMAGE_NODE_RED=letsfiware/node-red:v0.1.0-next
 
