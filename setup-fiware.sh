@@ -162,7 +162,7 @@ check_services_for_arm64() {
 
   local NAME
   local VAL
-  for NAME in CYGNUS_ELASTICSEARCH QUANTUMLEAP
+  for NAME in CYGNUS_ELASTICSEARCH
   do
     eval "VAL=\${${NAME}}"
     if [ "${VAL}" = "true" ]; then
@@ -355,7 +355,7 @@ set_arm64_images() {
   IMAGE_CYGNUS=letsfiware/fiware-cygnus:3.2.0
   IMAGE_IOTAGENT_UL=letsfiware/iotagent-ul:2.3.0
   IMAGE_IOTAGENT_JSON=letsfiware/iotagent-json:2.3.0
-  IMAGE_QUANTUMLEAP=orchestracities/quantumleap:0.8.3
+  IMAGE_QUANTUMLEAP=letsfiware/quantumleap:latest
   IMAGE_PERSEO_CORE=letsfiware/perseo-core:1.13.0
   IMAGE_PERSEO_FE=letsfiware/perseo-fe:1.27.0
   IMAGE_ELASTICSEARCH=letsfiware/elasticsearch:2.4

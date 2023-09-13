@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.1.0-next
 
+-   ADD Quantumleap 0.9.0-dev for arm64 (#13)
 -   ADD Perseo Core 1.13.0 and Perseo FE 1.27.0 for arm64 (#12)
 -   ADD Cygnus 3.2.0 for arm64 (#11)
 -   UPDATE documentation (#10)
