@@ -3,6 +3,7 @@
 
 ![FIWARE: Tools](https://nexus.lab.fiware.org/repository/raw/public/badges/chapters/deployment-tools.svg)
 [![License: MIT](https://img.shields.io/github/license/lets-fiware/FIWARE-Small-Bang.svg)](https://opensource.org/licenses/MIT)
+![GitHub all releases](https://img.shields.io/github/downloads/lets-fiware/FIWARE-Small-Bang/total)
 [![GitHub Discussions](https://img.shields.io/github/discussions/lets-fiware/FIWARE-Small-Bang)](https://github.com/lets-fiware/FIWARE-Small-Bang/discussions)
 <br/>
 [![Lint](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/lint.yml/badge.svg)](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/lint.yml)
@@ -46,8 +47,9 @@ FI-SB は FIWARE Small Bang の略称です。
 ## 要件
 
 -   サポートしている Linux ディストリビューション
-    -   Ubuntu 22.04 LTS (x86_64, Aarch64)
+    -   Ubuntu 22.04 LTS (x86_64, aarch64)
     -   Ubuntu 20.04 LTS
+    -   Raspberry Pi OS (aarc64)
     -   CentOS Stream release 9
     -   CentOS Stream release 8
     -   Rocky Linux 9
