@@ -2,6 +2,7 @@
 
 ## FIWARE Small Bang v0.1.0 - 10 September, 2023
 
+-   UPDATE documentation (#8)
 -   ADD IoT Agent for JSON 2.3.0 for arm64 (#7)
 -   ADD IoT Agent for UL 2.3.0 for arm64 (#6)
 -   ADD STH-Comet 2.10.0 for arm64 (#5)
