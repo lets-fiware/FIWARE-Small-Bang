@@ -318,7 +318,6 @@ set_amd64_images() {
   IMAGE_PERSEO_CORE=telefonicaiot/perseo-core:1.13.0
   IMAGE_PERSEO_FE=telefonicaiot/perseo-fe:1.27.0
   IMAGE_ELASTICSEARCH=elasticsearch:2.4
-  IMAGE_POSTGRES=postgres:15
 }
 
 #
@@ -326,8 +325,8 @@ set_amd64_images() {
 #
 set_arm64_images() {
   IMAGE_ORION=letsfiware/orion:3.10.1
-  IMAGE_WIRECLOUD=letsfiware/wirecloud:1.3
-  IMAGE_NGSIPROXY=letsfiware/ngsiproxy:1.2.0
+  IMAGE_WIRECLOUD=letsfiware/wirecloud:1.3.1
+  IMAGE_NGSIPROXY=letsfiware/ngsiproxy:1.2.2
   IMAGE_COMET=letsfiware/sth-comet:2.10.0
   IMAGE_CYGNUS=letsfiware/fiware-cygnus:3.2.0
   IMAGE_IOTAGENT_UL=letsfiware/iotagent-ul:2.3.0
@@ -336,7 +335,6 @@ set_arm64_images() {
   IMAGE_PERSEO_CORE=letsfiware/perseo-core:1.13.0
   IMAGE_PERSEO_FE=letsfiware/perseo-fe:1.27.0
   IMAGE_ELASTICSEARCH=letsfiware/elasticsearch:2.4
-  IMAGE_POSTGRES=postgres:9.6
 }
 
 #
@@ -394,6 +392,8 @@ EOF
   PERSEO_LOG_LEVEL=info
 
   IMAGE_MYSQL=mysql:8.1
+
+  IMAGE_POSTGRES=postgres:15
 
   IMAGE_ELASTICSEARCH_DB=elasticsearch:7.17.13
 
@@ -1495,7 +1495,7 @@ http {
         }
         location / {
             proxy_pass http://wirecloud:8000;
-            proxy_set_header Host $host;
+            proxy_set_header Host $host:$server_port;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
