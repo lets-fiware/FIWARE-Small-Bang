@@ -184,7 +184,7 @@ install_test2() {
   sed -i -e "s/^\(IOTAGENT_JSON=\).*/\1true/" config.sh
   sed -i -e "s/^\(START_CONTAINER=\).*/\1N/" config.sh
 
-  ${KCOV} ./coverage ./setup-fiware.sh
+  ${KCOV} ./coverage ./setup-fiware.sh 192.168.0.1
 
   reset_env
 
@@ -215,7 +215,7 @@ install_test_darwin_arm64() {
   sed -i -e "s/^\(WIRECLOUD=\).*/\1y/" config.sh
   sed -i -e "s/^\(START_CONTAINER=\).*/\1n/" config.sh
 
-  ${KCOV} ./coverage ./setup-fiware.sh
+  ${KCOV} ./coverage ./setup-fiware.sh aaa
 
   export FISB_TEST_UNAME_CMD=
   rm -f "${MOCK_DIR}/uname"

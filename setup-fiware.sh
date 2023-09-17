@@ -54,10 +54,12 @@ logging_err() {
 get_ip_address() {
   logging_info "${FUNCNAME[0]}"
 
-  if [ "${OS}" = "linux" ]; then
-    IP_ADDRESS=$(hostname -I | awk '{ print $1 }')
-  else
-    IP_ADDRESS=$("${IPCONFIG_CMD}" getifaddr en0)
+  if [ -z "${IP_ADDRESS}" ]; then
+    if [ "${OS}" = "linux" ]; then
+      IP_ADDRESS=$(hostname -I | awk '{ print $1 }')
+    else
+      IP_ADDRESS=$("${IPCONFIG_CMD}" getifaddr en0)
+    fi
   fi
 }
 
@@ -1625,15 +1627,15 @@ create_script_to_setup_ngsi_go() {
     rm -f "${SCRIPT_FILE}"
   fi
   {
-    echo -e "#!/bin/bash\n\n# This file was created by FIWARE Small Bang.\n# See http://github.com/lets-fiware/ngsi-go for how to install NGSI Go.\n";
-    echo "ngsi broker add --host orion.${IP_ADDRESS} --ngsiType v2 --brokerHost http://${IP_ADDRESS}:1026 --overWrite";
+    echo -e "#!/bin/bash\n\n# This file was created by FIWARE Small Bang.\n# See http://github.com/lets-fiware/ngsi-go for how to install NGSI Go.\n\nIP_ADDRESS=${IP_ADDRESS}\n";
+    echo "ngsi broker add --host orion.\${IP_ADDRESS} --ngsiType v2 --brokerHost http://\${IP_ADDRESS}:1026 --overWrite";
   } > "${SCRIPT_FILE}"
-  ${CYGNUS} && echo "ngsi server add --host cygnus.${IP_ADDRESS} --serverType cygnus --serverHost http://${IP_ADDRESS}:5080 --overWrite" >> "${SCRIPT_FILE}"
-  ${COMET} && echo "ngsi server add --host comet.${IP_ADDRESS} --serverType comet --serverHost http://${IP_ADDRESS}:8666 --overWrite" >> "${SCRIPT_FILE}"
-  ${WIRECLOUD} && echo "ngsi server add --host wirecloud.${IP_ADDRESS} --serverType wirecloud --serverHost http://${IP_ADDRESS} --overWrite" >> "${SCRIPT_FILE}"
-  ${IOTAGENT} && echo "ngsi server add --host iotagent.${IP_ADDRESS} --serverType iota --serverHost http://${IP_ADDRESS}:4041 --service openiot --path / --overWrite" >> "${SCRIPT_FILE}"
-  ${QUANTUMLEAP} && echo "ngsi server add --host quantumleap.${IP_ADDRESS} --serverType quantumleap --serverHost http://${IP_ADDRESS}:8668 --overWrite" >> "${SCRIPT_FILE}"
-  ${PERSEO} && echo "ngsi server add --host perseo.${IP_ADDRESS} --serverType perseo --serverHost http://${IP_ADDRESS}:9090 --overWrite" >> "${SCRIPT_FILE}"
+  ${CYGNUS} && echo "ngsi server add --host cygnus.\${IP_ADDRESS} --serverType cygnus --serverHost http://\${IP_ADDRESS}:5080 --overWrite" >> "${SCRIPT_FILE}"
+  ${COMET} && echo "ngsi server add --host comet.\${IP_ADDRESS} --serverType comet --serverHost http://\${IP_ADDRESS}:8666 --overWrite" >> "${SCRIPT_FILE}"
+  ${WIRECLOUD} && echo "ngsi server add --host wirecloud.\${IP_ADDRESS} --serverType wirecloud --serverHost http://\${IP_ADDRESS} --overWrite" >> "${SCRIPT_FILE}"
+  ${IOTAGENT} && echo "ngsi server add --host iotagent.\${IP_ADDRESS} --serverType iota --serverHost http://\${IP_ADDRESS}:4041 --service openiot --path / --overWrite" >> "${SCRIPT_FILE}"
+  ${QUANTUMLEAP} && echo "ngsi server add --host quantumleap.\${IP_ADDRESS} --serverType quantumleap --serverHost http://\${IP_ADDRESS}:8668 --overWrite" >> "${SCRIPT_FILE}"
+  ${PERSEO} && echo "ngsi server add --host perseo.\${IP_ADDRESS} --serverType perseo --serverHost http://\${IP_ADDRESS}:9090 --overWrite" >> "${SCRIPT_FILE}"
   chmod 0755 "${SCRIPT_FILE}"
 }
 
@@ -1695,13 +1697,18 @@ init_env() {
   LOGGER="${LOGGER:-false}"
   SED_LF=$(printf '\\\012_')
   SED_LF=${SED_LF%_}
+
+  IP_ADDRESS=
+  if [ $# -ge 1 ]; then
+    IP_ADDRESS=$(echo "${1}" | sed -n -r -e "s/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/\1/p")
+  fi
 }
 
 #
 # main
 #
 main() {
-  init_env
+  init_env "$@"
 
   init_cmd
 

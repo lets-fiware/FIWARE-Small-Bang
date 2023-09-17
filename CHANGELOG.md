@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.2.0-next
 
+-   ADD IP address option (#20)
 -   UPDATE WireCloud to 1.3.1 and NGSI Proxy to 1.2.2 for arm64 (#19)
 -   Improve release action (#18)
 -   ADD release action (#17)
