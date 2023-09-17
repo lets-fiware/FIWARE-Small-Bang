@@ -24,3 +24,5 @@ ngsi-v*
 *.jar
 setup_ngsi_go.sh
 .install
+*.tar.gz
+*.tgz
