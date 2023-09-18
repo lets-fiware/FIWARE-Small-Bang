@@ -28,7 +28,7 @@
 
 set -Ceuo pipefail
 
-VERSION=0.2.0
+VERSION=0.3.0
 
 #
 # Syslog info
@@ -54,10 +54,12 @@ logging_err() {
 get_ip_address() {
   logging_info "${FUNCNAME[0]}"
 
-  if [ "${OS}" = "linux" ]; then
-    IP_ADDRESS=$(hostname -I | awk '{ print $1 }')
-  else
-    IP_ADDRESS=$("${IPCONFIG_CMD}" getifaddr en0)
+  if [ -z "${IP_ADDRESS}" ]; then
+    if [ "${OS}" = "linux" ]; then
+      IP_ADDRESS=$(hostname -I | awk '{ print $1 }')
+    else
+      IP_ADDRESS=$("${IPCONFIG_CMD}" getifaddr en0)
+    fi
   fi
 }
 
@@ -318,7 +320,6 @@ set_amd64_images() {
   IMAGE_PERSEO_CORE=telefonicaiot/perseo-core:1.13.0
   IMAGE_PERSEO_FE=telefonicaiot/perseo-fe:1.27.0
   IMAGE_ELASTICSEARCH=elasticsearch:2.4
-  IMAGE_POSTGRES=postgres:15
 }
 
 #
@@ -326,8 +327,8 @@ set_amd64_images() {
 #
 set_arm64_images() {
   IMAGE_ORION=letsfiware/orion:3.10.1
-  IMAGE_WIRECLOUD=letsfiware/wirecloud:1.3
-  IMAGE_NGSIPROXY=letsfiware/ngsiproxy:1.2.0
+  IMAGE_WIRECLOUD=letsfiware/wirecloud:1.3.1
+  IMAGE_NGSIPROXY=letsfiware/ngsiproxy:1.2.2
   IMAGE_COMET=letsfiware/sth-comet:2.10.0
   IMAGE_CYGNUS=letsfiware/fiware-cygnus:3.2.0
   IMAGE_IOTAGENT_UL=letsfiware/iotagent-ul:2.3.0
@@ -336,7 +337,6 @@ set_arm64_images() {
   IMAGE_PERSEO_CORE=letsfiware/perseo-core:1.13.0
   IMAGE_PERSEO_FE=letsfiware/perseo-fe:1.27.0
   IMAGE_ELASTICSEARCH=letsfiware/elasticsearch:2.4
-  IMAGE_POSTGRES=postgres:9.6
 }
 
 #
@@ -395,9 +395,11 @@ EOF
 
   IMAGE_MYSQL=mysql:8.1
 
+  IMAGE_POSTGRES=postgres:15
+
   IMAGE_ELASTICSEARCH_DB=elasticsearch:7.17.13
 
-  IMAGE_NODE_RED=letsfiware/node-red:v0.2.0
+  IMAGE_NODE_RED=letsfiware/node-red:v0.3.0
 
   MONGO_INSTALLED=false
   POSTGRES_INSTALLED=false
@@ -1495,7 +1497,7 @@ http {
         }
         location / {
             proxy_pass http://wirecloud:8000;
-            proxy_set_header Host $host;
+            proxy_set_header Host $host:$server_port;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
@@ -1625,15 +1627,15 @@ create_script_to_setup_ngsi_go() {
     rm -f "${SCRIPT_FILE}"
   fi
   {
-    echo -e "#!/bin/bash\n\n# This file was created by FIWARE Small Bang.\n# See http://github.com/lets-fiware/ngsi-go for how to install NGSI Go.\n";
-    echo "ngsi broker add --host orion.${IP_ADDRESS} --ngsiType v2 --brokerHost http://${IP_ADDRESS}:1026 --overWrite";
+    echo -e "#!/bin/bash\n\n# This file was created by FIWARE Small Bang.\n# See http://github.com/lets-fiware/ngsi-go for how to install NGSI Go.\n\nIP_ADDRESS=${IP_ADDRESS}\n";
+    echo "ngsi broker add --host orion.\${IP_ADDRESS} --ngsiType v2 --brokerHost http://\${IP_ADDRESS}:1026 --overWrite";
   } > "${SCRIPT_FILE}"
-  ${CYGNUS} && echo "ngsi server add --host cygnus.${IP_ADDRESS} --serverType cygnus --serverHost http://${IP_ADDRESS}:5080 --overWrite" >> "${SCRIPT_FILE}"
-  ${COMET} && echo "ngsi server add --host comet.${IP_ADDRESS} --serverType comet --serverHost http://${IP_ADDRESS}:8666 --overWrite" >> "${SCRIPT_FILE}"
-  ${WIRECLOUD} && echo "ngsi server add --host wirecloud.${IP_ADDRESS} --serverType wirecloud --serverHost http://${IP_ADDRESS} --overWrite" >> "${SCRIPT_FILE}"
-  ${IOTAGENT} && echo "ngsi server add --host iotagent.${IP_ADDRESS} --serverType iota --serverHost http://${IP_ADDRESS}:4041 --service openiot --path / --overWrite" >> "${SCRIPT_FILE}"
-  ${QUANTUMLEAP} && echo "ngsi server add --host quantumleap.${IP_ADDRESS} --serverType quantumleap --serverHost http://${IP_ADDRESS}:8668 --overWrite" >> "${SCRIPT_FILE}"
-  ${PERSEO} && echo "ngsi server add --host perseo.${IP_ADDRESS} --serverType perseo --serverHost http://${IP_ADDRESS}:9090 --overWrite" >> "${SCRIPT_FILE}"
+  ${CYGNUS} && echo "ngsi server add --host cygnus.\${IP_ADDRESS} --serverType cygnus --serverHost http://\${IP_ADDRESS}:5080 --overWrite" >> "${SCRIPT_FILE}"
+  ${COMET} && echo "ngsi server add --host comet.\${IP_ADDRESS} --serverType comet --serverHost http://\${IP_ADDRESS}:8666 --overWrite" >> "${SCRIPT_FILE}"
+  ${WIRECLOUD} && echo "ngsi server add --host wirecloud.\${IP_ADDRESS} --serverType wirecloud --serverHost http://\${IP_ADDRESS} --overWrite" >> "${SCRIPT_FILE}"
+  ${IOTAGENT} && echo "ngsi server add --host iotagent.\${IP_ADDRESS} --serverType iota --serverHost http://\${IP_ADDRESS}:4041 --service openiot --path / --overWrite" >> "${SCRIPT_FILE}"
+  ${QUANTUMLEAP} && echo "ngsi server add --host quantumleap.\${IP_ADDRESS} --serverType quantumleap --serverHost http://\${IP_ADDRESS}:8668 --overWrite" >> "${SCRIPT_FILE}"
+  ${PERSEO} && echo "ngsi server add --host perseo.\${IP_ADDRESS} --serverType perseo --serverHost http://\${IP_ADDRESS}:9090 --overWrite" >> "${SCRIPT_FILE}"
   chmod 0755 "${SCRIPT_FILE}"
 }
 
@@ -1695,13 +1697,18 @@ init_env() {
   LOGGER="${LOGGER:-false}"
   SED_LF=$(printf '\\\012_')
   SED_LF=${SED_LF%_}
+
+  IP_ADDRESS=
+  if [ $# -ge 1 ]; then
+    IP_ADDRESS=$(echo "${1}" | sed -n -r -e "s/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/\1/p")
+  fi
 }
 
 #
 # main
 #
 main() {
-  init_env
+  init_env "$@"
 
   init_cmd
 
