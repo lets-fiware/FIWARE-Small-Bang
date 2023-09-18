@@ -1,3 +1,5 @@
+## FIWARE Small Bang v0.3.0-next
+
 ## FIWARE Small Bang v0.3.0 - 18 September, 2023
 
 -   ADD IP address option (#20)
