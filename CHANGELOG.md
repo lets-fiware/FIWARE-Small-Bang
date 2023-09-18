@@ -1,4 +1,4 @@
-## FIWARE Small Bang v0.2.0-next
+## FIWARE Small Bang v0.3.0 - 18 September, 2023
 
 -   ADD IP address option (#20)
 -   UPDATE WireCloud to 1.3.1 and NGSI Proxy to 1.2.2 for arm64 (#19)

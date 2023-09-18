@@ -21,13 +21,13 @@ Before running the setup script, you need to install docker and docker compose p
 Download a tar.gz file for the FIWARE Small Bang.
 
 ```bash
-curl -sL  https://github.com/lets-fiware/FIWARE-Small-Bang/releases/download/v0.2.0/FIWARE-Small-Bang-0.2.0.tar.gz | tar zxf -
+curl -sL  https://github.com/lets-fiware/FIWARE-Small-Bang/releases/download/v0.3.0/FIWARE-Small-Bang-0.3.0.tar.gz | tar zxf -
 ```
 
-Move to the `FIWARE-Small-Bang-0.2.0` directory.
+Move to the `FIWARE-Small-Bang-0.3.0` directory.
 
 ```bash
-cd FIWARE-Small-Bang-0.2.0/
+cd FIWARE-Small-Bang-0.3.0/
 ```
 
 Run the `setup-fiware.sh` script.
