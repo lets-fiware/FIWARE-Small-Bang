@@ -42,7 +42,7 @@ version_up() {
   
   sed -i "1s/${OLD}-next/${NEW} - ${DATE}/" "${FISB_HOME}/CHANGELOG.md"
   
-  for file in README.md README_ja.md VERSION docs/en/installation.md docs/ja/installation.md setup-fiware.sh
+  for file in README.md README_ja.md VERSION docs/en/index.md docs/ja/index.md docs/en/installation.md docs/ja/installation.md setup-fiware.sh
   do
     file="${FISB_HOME}/${file}"
     ls -l "${file}"
