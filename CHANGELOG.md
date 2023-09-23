@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.3.0-next
 
+-   FIX documentation (#24)
 -   FIX release action (#23)
 
 ## FIWARE Small Bang v0.3.0 - 18 September, 2023
