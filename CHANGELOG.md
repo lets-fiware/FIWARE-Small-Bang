@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.3.0-next
 
+-   ADD IoT Agent for UL 2.4.2 (#25)
 -   FIX documentation (#24)
 -   FIX release action (#23)
 
