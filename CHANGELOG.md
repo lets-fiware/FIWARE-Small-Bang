@@ -1,3 +1,10 @@
+## FIWARE Small Bang v0.4.0 - 06 October, 2023
+
+-   ADD IoT Agent for JSON 2.4.2 (#26)
+-   ADD IoT Agent for UL 2.4.2 (#25)
+-   FIX documentation (#24)
+-   FIX release action (#23)
+
 ## FIWARE Small Bang v0.3.0 - 18 September, 2023
 
 -   ADD IP address option (#20)
