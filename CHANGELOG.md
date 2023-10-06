@@ -1,3 +1,5 @@
+## FIWARE Small Bang v0.4.0-next
+
 ## FIWARE Small Bang v0.4.0 - 06 October, 2023
 
 -   ADD IoT Agent for JSON 2.4.2 (#26)
