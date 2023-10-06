@@ -65,13 +65,13 @@ FI-SB は FIWARE Small Bang の略称です。
 FIWARE Small Bang の tar.gz ファイルをダウンロードします。
 
 ```bash
-curl -sL  https://github.com/lets-fiware/FIWARE-Small-Bang/releases/download/v0.3.0/FIWARE-Small-Bang-0.3.0.tar.gz | tar zxf -
+curl -sL  https://github.com/lets-fiware/FIWARE-Small-Bang/releases/download/v0.4.0/FIWARE-Small-Bang-0.4.0.tar.gz | tar zxf -
 ```
 
-`FIWARE-Small-Bang-0.3.0` ディレクトリに移動します。
+`FIWARE-Small-Bang-0.4.0` ディレクトリに移動します。
 
 ```bash
-cd FIWARE-Small-Bang-0.3.0/
+cd FIWARE-Small-Bang-0.4.0/
 ```
 
 `setup-fiware.sh` スクリプトを実行します。
