@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2023 Kazuhito Suda
+# Copyright (c) 2023-2024 Kazuhito Suda
 #
 # This file is part of FIWARE Small Bang
 #

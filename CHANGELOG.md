@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.4.0-next
 
+-   Update copyright date (#30)
 -   ADD node-red 3.1.3 (#29)
 
 ## FIWARE Small Bang v0.4.0 - 06 October, 2023
