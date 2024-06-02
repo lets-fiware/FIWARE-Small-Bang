@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.4.0-next
 
+-   Update Cygnus to 3.8.0 (#33)
 -   Update Orion to 3.12.0 (#32)
 -   Update node-red 3.1.9 (#31)
 -   Update copyright date (#30)
