@@ -46,7 +46,7 @@ ngsi version --host comet.local
 #### レスポンス:
 
 ```json
-{"version":"2.10.0"}
+{"version":"2.11.0"}
 ```
 
 <a name="subscribing-to-context-changes"></a>

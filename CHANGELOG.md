@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.4.0-next
 
+-   Update STH-Comet 2.11.0 (#34)
 -   Update Cygnus to 3.8.0 (#33)
 -   Update Orion to 3.12.0 (#32)
 -   Update node-red 3.1.9 (#31)
