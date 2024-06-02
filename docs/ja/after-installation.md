@@ -136,7 +136,7 @@ ngsi version --host cygnus.local --pretty
 ```json
 {
   "success": "true",
-  "version": "3.2.0.9b21eae9095e3250ba8799e61411905d1c756191"
+  "version": "3.8.0.f62eff701c01df1f708e0c9484e48e7b9bd9b1ed"
 }
 ```
 
