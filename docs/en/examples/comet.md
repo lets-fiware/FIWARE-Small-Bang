@@ -42,7 +42,7 @@ ngsi version --host comet.local
 #### Response:
 
 ```json
-{"version":"2.10.0"}
+{"version":"2.11.0"}
 ```
 
 ### Subscribing to Context Changes

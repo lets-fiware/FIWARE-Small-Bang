@@ -312,7 +312,7 @@ set_amd64_images() {
   IMAGE_ORION=telefonicaiot/fiware-orion:3.12.0
   IMAGE_WIRECLOUD=quay.io/fiware/wirecloud:1.3.1
   IMAGE_NGSIPROXY=quay.io/fiware/ngsiproxy:1.2.2
-  IMAGE_COMET=telefonicaiot/fiware-sth-comet:2.10.0
+  IMAGE_COMET=telefonicaiot/fiware-sth-comet:2.11.0
   IMAGE_CYGNUS=telefonicaiot/fiware-cygnus:3.8.0
   IMAGE_IOTAGENT_UL=telefonicaiot/iotagent-ul:2.4.2
   IMAGE_IOTAGENT_JSON=telefonicaiot/iotagent-json:2.4.2
@@ -329,7 +329,7 @@ set_arm64_images() {
   IMAGE_ORION=letsfiware/orion:3.12.0
   IMAGE_WIRECLOUD=letsfiware/wirecloud:1.3.1
   IMAGE_NGSIPROXY=letsfiware/ngsiproxy:1.2.2
-  IMAGE_COMET=letsfiware/sth-comet:2.10.0
+  IMAGE_COMET=letsfiware/sth-comet:2.11.0
   IMAGE_CYGNUS=letsfiware/fiware-cygnus:3.8.0
   IMAGE_IOTAGENT_UL=letsfiware/iotagent-ul:2.4.2
   IMAGE_IOTAGENT_JSON=letsfiware/iotagent-json:2.4.2
