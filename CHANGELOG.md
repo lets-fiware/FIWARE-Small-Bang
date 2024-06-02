@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.4.0-next
 
+-   Support Ubuntu 24.04 (#36)
 -   Bump codecov/codecov-action from 1 to 4 (#35)
 -   Update STH-Comet 2.11.0 (#34)
 -   Update Cygnus to 3.8.0 (#33)

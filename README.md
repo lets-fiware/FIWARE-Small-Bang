@@ -12,6 +12,7 @@
 <br/>
 [![Ubuntu 20.04](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-20.04.yml/badge.svg)](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-20.04.yml)
 [![Ubuntu 22.04](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-22.04.yml/badge.svg)](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-22.04.yml)
+[![Ubuntu 24.04](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-24.04.yml/badge.svg)](https://github.com/lets-fiware/FIWARE-Small-Bang/actions/workflows/ubuntu-24.04.yml)
 <br/>
 
 The FIWARE Small Bang is a turnkey solution for setting up a FIWARE instance on your local machine.
@@ -49,6 +50,7 @@ FI-SB stands for FIWARE Small Bang.
 ## Requirements
 
 -   Supported Linux distribution
+    -   Ubuntu 24.04 LTS (x86_64, aarch64)
     -   Ubuntu 22.04 LTS (x86_64, aarch64)
     -   Ubuntu 20.04 LTS
     -   Raspberry Pi OS (aarc64)
