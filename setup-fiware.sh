@@ -1535,7 +1535,7 @@ setup_node_red() {
   mkdir "${NODE_RED_DIR}"
 
   cat <<'EOF' > "${NODE_RED_DIR}"/Dockerfile
-FROM nodered/node-red:3.1.3
+FROM nodered/node-red:3.1.9
 
 RUN \
     npm i node-red-contrib-letsfiware-ngsi
