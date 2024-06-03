@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.4.0-next
 
+-   Update Perseo FE to 1.30.0 (#41)
 -   Update IoT Agent for JSON to 3.4.0 (#40)
 -   Update IoT Agent for UltraLight to 3.4.0 (#39)
 -   Update Quantumleap 1.0.0 (#38)

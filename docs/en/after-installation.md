@@ -166,7 +166,7 @@ ngsi version --host perseo.local --pretty
   "data": {
     "name": "perseo",
     "description": "IOT CEP front End",
-    "version": "1.27.0"
+    "version": "1.30.0"
   }
 }
 ```
