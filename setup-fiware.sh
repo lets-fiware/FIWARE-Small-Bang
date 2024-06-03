@@ -669,7 +669,6 @@ init_docker_compose_yml() {
   logging_info "${FUNCNAME[0]}"
 
   cat <<'EOF' > "${DOCKER_COMPOSE_YML}"
-version: "3" 
 services:
 EOF
 }
