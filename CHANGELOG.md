@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.4.0-next
 
+-   Update node.js dependencies (#43)
 -   Improve maintenance script (#42)
 -   Update Perseo FE to 1.30.0 (#41)
 -   Update IoT Agent for JSON to 3.4.0 (#40)
