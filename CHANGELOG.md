@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.4.0-next
 
+-   Update IoT Agent for JSON to 3.4.0 (#40)
 -   Update IoT Agent for UltraLight to 3.4.0 (#39)
 -   Update Quantumleap 1.0.0 (#38)
 -   Remove version property from docker compose files (#37)
