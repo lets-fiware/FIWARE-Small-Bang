@@ -1,5 +1,6 @@
 ## FIWARE Small Bang v0.4.0-next
 
+-   Remove version property from docker compose files (#37)
 -   Support Ubuntu 24.04 (#36)
 -   Bump codecov/codecov-action from 1 to 4 (#35)
 -   Update STH-Comet 2.11.0 (#34)
