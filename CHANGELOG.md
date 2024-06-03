@@ -1,6 +1,7 @@
 ## FIWARE Small Bang v0.4.0-next
 
--   Update Quantumleap 1.0.0 (#13)
+-   Update IoT Agent for UltraLight to 3.4.0 (#39)
+-   Update Quantumleap 1.0.0 (#38)
 -   Remove version property from docker compose files (#37)
 -   Support Ubuntu 24.04 (#36)
 -   Bump codecov/codecov-action from 1 to 4 (#35)
