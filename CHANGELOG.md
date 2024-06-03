@@ -1,4 +1,4 @@
-## FIWARE Small Bang v0.4.0-next
+## FIWARE Small Bang v0.5.0 - 03 June, 2024
 
 -   Improve maintenance script (#42)
 -   Update Perseo FE to 1.30.0 (#41)
