@@ -316,7 +316,7 @@ set_amd64_images() {
   IMAGE_CYGNUS=telefonicaiot/fiware-cygnus:3.8.0
   IMAGE_IOTAGENT_UL=telefonicaiot/iotagent-ul:2.4.2
   IMAGE_IOTAGENT_JSON=telefonicaiot/iotagent-json:2.4.2
-  IMAGE_QUANTUMLEAP=orchestracities/quantumleap:0.8.3
+  IMAGE_QUANTUMLEAP=orchestracities/quantumleap:1.0.0
   IMAGE_PERSEO_CORE=telefonicaiot/perseo-core:1.13.0
   IMAGE_PERSEO_FE=telefonicaiot/perseo-fe:1.27.0
   IMAGE_ELASTICSEARCH=elasticsearch:2.4
@@ -333,7 +333,7 @@ set_arm64_images() {
   IMAGE_CYGNUS=letsfiware/fiware-cygnus:3.8.0
   IMAGE_IOTAGENT_UL=letsfiware/iotagent-ul:2.4.2
   IMAGE_IOTAGENT_JSON=letsfiware/iotagent-json:2.4.2
-  IMAGE_QUANTUMLEAP=letsfiware/quantumleap:latest
+  IMAGE_QUANTUMLEAP=letsfiware/quantumleap:1.0.0
   IMAGE_PERSEO_CORE=letsfiware/perseo-core:1.13.0
   IMAGE_PERSEO_FE=letsfiware/perseo-fe:1.27.0
   IMAGE_ELASTICSEARCH=letsfiware/elasticsearch:2.4

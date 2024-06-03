@@ -27,7 +27,7 @@ ngsi version --host quantumleap.local
 
 ```json
 {
-  "version": "0.8.3-dev"
+  "version": "1.0.0"
 }
 ```
 
