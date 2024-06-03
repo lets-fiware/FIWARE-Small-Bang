@@ -2,7 +2,7 @@
 
 # MIT License
 #
-# Copyright (c) 2023 Kazuhito Suda
+# Copyright (c) 2023-2024 Kazuhito Suda
 #
 # This file is part of FIWARE Small Bang
 #
@@ -75,7 +75,7 @@ RES=$(curl -X POST \
 DIR="${NAME}-${TAG//v/}"
 mkdir "${DIR}"
 
-for FILE in LICENSE README.md config.sh setup-fiware.sh
+for FILE in LICENSE README.md config.sh .config.sh setup-fiware.sh
 do
   cp -a "${FILE}" "${DIR}/"
 done

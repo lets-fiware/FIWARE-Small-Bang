@@ -2,7 +2,7 @@
 
 # MIT License
 #
-# Copyright (c) 2023 Kazuhito Suda
+# Copyright (c) 2023-2024 Kazuhito Suda
 #
 # This file is part of FIWARE Small Bang
 #
@@ -28,7 +28,7 @@
 
 set -Ceuo pipefail
 
-VERSION=0.4.0
+VERSION=0.5.0
 
 #
 # Syslog info
@@ -309,16 +309,16 @@ get_config_sh() {
 # Set amd64(x86_64) images
 #
 set_amd64_images() {
-  IMAGE_ORION=telefonicaiot/fiware-orion:3.10.1
+  IMAGE_ORION=telefonicaiot/fiware-orion:3.12.0
   IMAGE_WIRECLOUD=quay.io/fiware/wirecloud:1.3.1
   IMAGE_NGSIPROXY=quay.io/fiware/ngsiproxy:1.2.2
-  IMAGE_COMET=telefonicaiot/fiware-sth-comet:2.10.0
-  IMAGE_CYGNUS=telefonicaiot/fiware-cygnus:3.2.0
-  IMAGE_IOTAGENT_UL=telefonicaiot/iotagent-ul:2.4.2
-  IMAGE_IOTAGENT_JSON=telefonicaiot/iotagent-json:2.4.2
-  IMAGE_QUANTUMLEAP=orchestracities/quantumleap:0.8.3
+  IMAGE_COMET=telefonicaiot/fiware-sth-comet:2.11.0
+  IMAGE_CYGNUS=telefonicaiot/fiware-cygnus:3.8.0
+  IMAGE_IOTAGENT_UL=telefonicaiot/iotagent-ul:3.4.0
+  IMAGE_IOTAGENT_JSON=telefonicaiot/iotagent-json:3.4.0
+  IMAGE_QUANTUMLEAP=orchestracities/quantumleap:1.0.0
   IMAGE_PERSEO_CORE=telefonicaiot/perseo-core:1.13.0
-  IMAGE_PERSEO_FE=telefonicaiot/perseo-fe:1.27.0
+  IMAGE_PERSEO_FE=telefonicaiot/perseo-fe:1.30.0
   IMAGE_ELASTICSEARCH=elasticsearch:2.4
 }
 
@@ -326,16 +326,16 @@ set_amd64_images() {
 # Set arm64 images
 #
 set_arm64_images() {
-  IMAGE_ORION=letsfiware/orion:3.10.1
+  IMAGE_ORION=letsfiware/orion:3.12.0
   IMAGE_WIRECLOUD=letsfiware/wirecloud:1.3.1
   IMAGE_NGSIPROXY=letsfiware/ngsiproxy:1.2.2
-  IMAGE_COMET=letsfiware/sth-comet:2.10.0
-  IMAGE_CYGNUS=letsfiware/fiware-cygnus:3.2.0
-  IMAGE_IOTAGENT_UL=letsfiware/iotagent-ul:2.4.2
-  IMAGE_IOTAGENT_JSON=letsfiware/iotagent-json:2.4.2
-  IMAGE_QUANTUMLEAP=letsfiware/quantumleap:latest
+  IMAGE_COMET=letsfiware/sth-comet:2.11.0
+  IMAGE_CYGNUS=letsfiware/fiware-cygnus:3.8.0
+  IMAGE_IOTAGENT_UL=letsfiware/iotagent-ul:3.4.0
+  IMAGE_IOTAGENT_JSON=letsfiware/iotagent-json:3.4.0
+  IMAGE_QUANTUMLEAP=letsfiware/quantumleap:1.0.0
   IMAGE_PERSEO_CORE=letsfiware/perseo-core:1.13.0
-  IMAGE_PERSEO_FE=letsfiware/perseo-fe:1.27.0
+  IMAGE_PERSEO_FE=letsfiware/perseo-fe:1.30.0
   IMAGE_ELASTICSEARCH=letsfiware/elasticsearch:2.4
 }
 
@@ -399,7 +399,7 @@ EOF
 
   IMAGE_ELASTICSEARCH_DB=elasticsearch:7.17.13
 
-  IMAGE_NODE_RED=letsfiware/node-red:v0.4.0
+  IMAGE_NODE_RED=letsfiware/node-red:v0.5.0
 
   MONGO_INSTALLED=false
   POSTGRES_INSTALLED=false
@@ -669,7 +669,6 @@ init_docker_compose_yml() {
   logging_info "${FUNCNAME[0]}"
 
   cat <<'EOF' > "${DOCKER_COMPOSE_YML}"
-version: "3" 
 services:
 EOF
 }
@@ -1535,7 +1534,7 @@ setup_node_red() {
   mkdir "${NODE_RED_DIR}"
 
   cat <<'EOF' > "${NODE_RED_DIR}"/Dockerfile
-FROM nodered/node-red:3.1.0
+FROM nodered/node-red:3.1.9
 
 RUN \
     npm i node-red-contrib-letsfiware-ngsi

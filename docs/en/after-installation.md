@@ -90,24 +90,24 @@ ngsi version --host orion.local
 ```json
 {
 "orion" : {
-  "version" : "3.10.1",
-  "uptime" : "0 d, 0 h, 0 m, 26 s",
-  "git_hash" : "9a80e06abe7f690901cf1586377acec02d40e303",
-  "compile_time" : "Mon Jun 12 16:55:20 UTC 2023",
+  "version" : "3.12.0",
+  "uptime" : "0 d, 0 h, 0 m, 3 s",
+  "git_hash" : "7ebe97f8ddc13436c66ead53460fd4776e923e34",
+  "compile_time" : "Sun Jun 2 04:51:55 UTC 2024",
   "compiled_by" : "root",
   "compiled_in" : "buildkitsandbox",
-  "release_date" : "Mon Jun 12 16:55:20 UTC 2023",
-  "machine" : "x86_64",
-  "doc" : "https://fiware-orion.rtfd.io/en/3.10.1/",
+  "release_date" : "Sun Jun 2 04:51:55 UTC 2024",
+  "machine" : "aarch64",
+  "doc" : "https://fiware-orion.rtfd.io/en/3.12.0/",
   "libversions": {
      "boost": "1_74",
-     "libcurl": "libcurl/7.74.0 OpenSSL/1.1.1n zlib/1.2.12 brotli/1.0.9 libidn2/2.3.0 libpsl/0.21.0 (+libidn2/2.3.0) libssh2/1.9.0 nghttp2/1.43.0 librtmp/2.3",
+     "libcurl": "libcurl/7.88.1 OpenSSL/3.0.11 zlib/1.2.13 brotli/1.0.9 zstd/1.5.4 libidn2/2.3.3 libpsl/0.21.2 (+libidn2/2.3.3) libssh2/1.10.0 nghttp2/1.52.0 librtmp/2.3 OpenLDAP/2.5.13",
      "libmosquitto": "2.0.15",
      "libmicrohttpd": "0.9.76",
-     "openssl": "1.1",
+     "openssl": "3.0.11",
      "rapidjson": "1.1.0",
-     "mongoc": "1.23.1",
-     "bson": "1.23.1"
+     "mongoc": "1.24.3",
+     "bson": "1.24.3"
   }
 }
 }
@@ -128,7 +128,7 @@ ngsi version --host cygnus.local --pretty
 ```json
 {
   "success": "true",
-  "version": "3.2.0.9b21eae9095e3250ba8799e61411905d1c756191"
+  "version": "3.8.0.f62eff701c01df1f708e0c9484e48e7b9bd9b1ed"
 }
 ```
 
@@ -145,7 +145,7 @@ ngsi version --host comet.local
 #### Response:
 
 ```json
-{"version":"2.10.0"}
+{"version":"2.11.0"}
 ```
 
 ### Sanity check for Perseo
@@ -166,7 +166,7 @@ ngsi version --host perseo.local --pretty
   "data": {
     "name": "perseo",
     "description": "IOT CEP front End",
-    "version": "1.27.0"
+    "version": "1.30.0"
   }
 }
 ```
@@ -185,7 +185,7 @@ ngsi version --host quantumleap.local
 
 ```json
 {
-  "version": "0.8.3-dev"
+  "version": "1.0.0"
 }
 ```
 
@@ -221,10 +221,10 @@ ngsi version --host iotagent.local --pretty
 
 ```json
 {
-  "libVersion": "3.2.0",
+  "libVersion": "4.4.0",
   "port": "4041",
   "baseRoot": "/",
-  "version": "2.2.0"
+  "version": "3.4.0"
 }
 ```
 
@@ -242,10 +242,10 @@ ngsi version --host iotagent.local --pretty
 
 ```json
 {
-  "libVersion": "3.2.0",
+  "libVersion": "4.4.0",
   "port": "4041",
   "baseRoot": "/",
-  "version": "2.2.0"
+  "version": "3.4.0"
 }
 ```
 

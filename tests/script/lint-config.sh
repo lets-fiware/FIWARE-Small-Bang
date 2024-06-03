@@ -2,7 +2,7 @@
 
 # MIT License
 #
-# Copyright (c) 2023 Kazuhito Suda
+# Copyright (c) 2023-2024 Kazuhito Suda
 #
 # This file is part of FIWARE Small Bang
 #
@@ -30,6 +30,9 @@ set -ue
 
 cd "$(dirname "$0")"
 cd ../..
+
+echo "*** diff config.sh .config.sh ***"
+diff config.sh .config.sh
 
 . ./config.sh
 

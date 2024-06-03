@@ -46,7 +46,7 @@ ngsi version --host comet.local
 #### レスポンス:
 
 ```json
-{"version":"2.10.0"}
+{"version":"2.11.0"}
 ```
 
 <a name="subscribing-to-context-changes"></a>
@@ -266,7 +266,7 @@ ngsi version --host cygnus.local --pretty
 ```json
 {
   "success": "true",
-  "version": "2.10.0.5bb41dfcca1e25db664850e6b7806e3cf6a2aa7b"
+  "version": "3.8.0.f62eff701c01df1f708e0c9484e48e7b9bd9b1ed"
 }
 ```
 

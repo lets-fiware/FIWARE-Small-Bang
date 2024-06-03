@@ -1,3 +1,20 @@
+## FIWARE Small Bang v0.5.0 - 03 June, 2024
+
+-   Improve maintenance script (#42)
+-   Update Perseo FE to 1.30.0 (#41)
+-   Update IoT Agent for JSON to 3.4.0 (#40)
+-   Update IoT Agent for UltraLight to 3.4.0 (#39)
+-   Update Quantumleap 1.0.0 (#38)
+-   Remove version property from docker compose files (#37)
+-   Support Ubuntu 24.04 (#36)
+-   Bump codecov/codecov-action from 1 to 4 (#35)
+-   Update STH-Comet 2.11.0 (#34)
+-   Update Cygnus to 3.8.0 (#33)
+-   Update Orion to 3.12.0 (#32)
+-   Update node-red 3.1.9 (#31)
+-   Update copyright date (#30)
+-   ADD node-red 3.1.3 (#29)
+
 ## FIWARE Small Bang v0.4.0 - 06 October, 2023
 
 -   ADD IoT Agent for JSON 2.4.2 (#26)

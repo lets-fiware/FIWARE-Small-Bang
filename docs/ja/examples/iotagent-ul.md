@@ -42,10 +42,10 @@ ngsi version --host iotagent-ul.local --pretty
 
 ```json
 {
-  "libVersion": "3.2.0",
+  "libVersion": "4.4.0",
   "port": "4041",
   "baseRoot": "/",
-  "version": "2.2.0"
+  "version": "3.4.0"
 }
 ```
 
