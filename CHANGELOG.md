@@ -1,3 +1,5 @@
+## FIWARE Small Bang v0.5.0-next
+
 ## FIWARE Small Bang v0.5.0 - 03 June, 2024
 
 -   Improve maintenance script (#42)
