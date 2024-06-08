@@ -309,7 +309,7 @@ get_config_sh() {
 # Set amd64(x86_64) images
 #
 set_amd64_images() {
-  IMAGE_ORION=telefonicaiot/fiware-orion:3.12.0
+  IMAGE_ORION=telefonicaiot/fiware-orion:4.0.0
   IMAGE_WIRECLOUD=quay.io/fiware/wirecloud:1.3.1
   IMAGE_NGSIPROXY=quay.io/fiware/ngsiproxy:1.2.2
   IMAGE_COMET=telefonicaiot/fiware-sth-comet:2.11.0
@@ -326,7 +326,7 @@ set_amd64_images() {
 # Set arm64 images
 #
 set_arm64_images() {
-  IMAGE_ORION=letsfiware/orion:3.12.0
+  IMAGE_ORION=letsfiware/orion:4.0.0
   IMAGE_WIRECLOUD=letsfiware/wirecloud:1.3.1
   IMAGE_NGSIPROXY=letsfiware/ngsiproxy:1.2.2
   IMAGE_COMET=letsfiware/sth-comet:2.11.0
@@ -737,7 +737,7 @@ setup_orion() {
     image: ${IMAGE_ORION}
     depends_on:
       - mongo
-    entrypoint: ["sh", "-c", "rm /tmp/contextBroker.pid; /usr/bin/contextBroker -fg -multiservice -dbhost mongo"]
+    entrypoint: ["sh", "-c", "if [ -e /tmp/contextBroker.pid ]; then rm /tmp/contextBroker.pid; fi; /usr/bin/contextBroker -fg -multiservice -ngsiv1Autocast -disableFileLog -dbURI mongodb://mongo"]
     restart: always
     ports:
       - 1026:1026
