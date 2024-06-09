@@ -28,7 +28,7 @@
 
 set -Ceuo pipefail
 
-VERSION=0.5.0-next
+VERSION=0.6.0
 
 #
 # Syslog info
@@ -399,7 +399,7 @@ EOF
 
   IMAGE_ELASTICSEARCH_DB=elasticsearch:7.17.13
 
-  IMAGE_NODE_RED=letsfiware/node-red:v0.5.0-next
+  IMAGE_NODE_RED=letsfiware/node-red:v0.6.0
 
   MONGO_INSTALLED=false
   POSTGRES_INSTALLED=false
