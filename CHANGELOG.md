@@ -1,3 +1,5 @@
+## FIWARE Small Bang v0.6.0-next
+
 ## FIWARE Small Bang v0.6.0 - 09 June, 2024
 
 -   Update Mongodb to 6.0 (#48)
