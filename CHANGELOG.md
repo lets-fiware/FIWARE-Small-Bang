@@ -1,3 +1,9 @@
+## FIWARE Small Bang v0.6.0 - 09 June, 2024
+
+-   Update Mongodb to 6.0 (#48)
+-   Update node.js dependencies (#47)
+-   Update Orion to 4.0.0 (#46)
+
 ## FIWARE Small Bang v0.5.0 - 03 June, 2024
 
 -   Improve maintenance script (#42)
